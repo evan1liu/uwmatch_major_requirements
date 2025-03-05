@@ -1,0 +1,50 @@
+# for each course AFTER processing,
+# course designations are in a list of strings
+
+
+from motor.motor_asyncio import AsyncIOMotorClient
+from collections import Counter
+from config import Settings
+import asyncio
+
+
+async def get_unique_designations(course_collection):
+    """
+    Get a list of all unique formatted designation values across all courses
+    and count their frequency
+    """
+    unique_designations = Counter()
+    
+    cursor = course_collection.find(
+        {"formatted_designations": {"$exists": True}},
+        {"formatted_designations": 1}
+    )
+    
+    async for doc in cursor:
+        if "formatted_designations" in doc and doc["formatted_designations"]:
+            for designation in doc["formatted_designations"]:
+                unique_designations[designation] += 1
+    
+    # Print the unique designations and their counts
+    print(f"Found {len(unique_designations)} unique designation values:")
+    for designation, count in unique_designations.most_common():
+        print(f"- {designation}: {count} courses")
+    
+    return unique_designations
+
+async def main():
+    # Connect to the database
+    client = AsyncIOMotorClient(Settings.MONGODB_URI)
+    db = client.uwmatch
+    course_collection = db.courses
+    
+    unique_course_designations = await get_unique_designations(course_collection)
+    print(unique_course_designations)
+    
+
+    
+    # Close the connection
+    client.close()
+
+if __name__ == "__main__":
+    asyncio.run(main())
