@@ -1,0 +1,478 @@
+[
+  {
+    "description": "Mathematics: Calculus and Analytic Geometry 1",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Mathematics: Calculus and Analytic Geometry 2",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Mathematics: Calculus--Functions of Several Variables",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Mathematics: Probability and Statistics Elective",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Science: Programming II",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Science: General Physics 1",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Science: General Physics 2",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Science: Chemistry",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Core: EE Core Courses",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 12,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 22,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Laboratory",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Additional Laboratory",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Fields & Waves",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [
+      "E C E 320"
+    ],
+    "total_credits": 3,
+    "total_courses": 1,
+    "course_details": [
+      {
+        "course_code": "E C E 320",
+        "departments": [
+          "E C E"
+        ],
+        "credits": 3
+      }
+    ]
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Systems & Control",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Power & Machines",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Communications & Signal Processing",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Circuits & Devices",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Electrical Engineering Advanced Electives: Advanced Electives Distribution - Computers & Computing",
+    "passed": true,
+    "validation_status": {},
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Professional Electives: Professional Electives",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 9,
+        "actual": 8,
+        "passed": false
+      }
+    },
+    "passing_courses": [
+      "ENTOM/\u200bZOOLOGY 302",
+      "PHYSICS 449",
+      "ZOOLOGY 400"
+    ],
+    "total_credits": 8,
+    "total_courses": 3,
+    "course_details": [
+      {
+        "course_code": "ENTOM/\u200bZOOLOGY 302",
+        "departments": [
+          "ENTOM",
+          "\u200bZOOLOGY"
+        ],
+        "credits": 4
+      },
+      {
+        "course_code": "PHYSICS 449",
+        "departments": [
+          "PHYSICS"
+        ],
+        "credits": 3
+      },
+      {
+        "course_code": "ZOOLOGY 400",
+        "departments": [
+          "ZOOLOGY"
+        ],
+        "credits": 1
+      }
+    ]
+  },
+  {
+    "description": "Communication Skills: First Communication Course",
+    "passed": true,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 1,
+        "passed": true
+      }
+    },
+    "passing_courses": [
+      "COM ARTS 100"
+    ],
+    "total_credits": 3,
+    "total_courses": 1,
+    "course_details": [
+      {
+        "course_code": "COM ARTS 100",
+        "departments": [
+          "COM ARTS"
+        ],
+        "credits": 3
+      }
+    ]
+  },
+  {
+    "description": "Communication Skills: Engineering Communication",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Liberal Studies: Liberal Studies Requirement",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 15,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Breadth-Humanities/Literature/Arts",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 6,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Breadth-Natural Science",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 4,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Breadth-Social Studies",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 3,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Communication Part A",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Communication Part B",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Ethnic Studies",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Quantitative Reasoning Part A",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "University General Education Requirements: Quantitative Reasoning Part B",
+    "passed": false,
+    "validation_status": {
+      "min_courses": {
+        "required": 1,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  },
+  {
+    "description": "Honors in Research Program: Honors Research Credits",
+    "passed": false,
+    "validation_status": {
+      "min_credits": {
+        "required": 6,
+        "actual": 0,
+        "passed": false
+      }
+    },
+    "passing_courses": [],
+    "total_credits": 0,
+    "total_courses": 0,
+    "course_details": []
+  }
+]

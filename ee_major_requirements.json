@@ -1,0 +1,384 @@
+{
+  "major_name": "Electrical Engineering",
+  "major_code": "EE",
+  "total_credits_required": 120,
+  "requirement_groups": [
+    {
+      "name": "Mathematics",
+      "description": "Mathematics requirements including calculus, multi-variable calculus, and statistics",
+      "credits_required": 16,
+      "conditions": [
+        {
+          "description": "Calculus and Analytic Geometry 1",
+          "filters": [{"list": ["MATH 221", "MATH 217"]}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Calculus and Analytic Geometry 2",
+          "filters": [{"list": ["MATH 222"]}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Calculus--Functions of Several Variables",
+          "filters": [{"list": ["MATH 234"]}],
+          "validation": {"min_courses": 1},
+          "alternative_fulfillment": [
+            {
+              "description": "Honors Calculus Path",
+              "filters": [{"list": ["MATH 375", "MATH 376"]}],
+              "validation": {"min_courses": 2},
+              "additional_credits_apply_to": ["Professional Electives", "Advanced Math Auxiliary"]
+            }
+          ]
+        },
+        {
+          "description": "Probability and Statistics Elective",
+          "filters": [{"list": ["STAT 311", "STAT/M E 424", "MATH/STAT 431", "E C E 331"]}],
+          "validation": {"min_courses": 1}
+        }
+      ],
+      "auxiliary_conditions": [
+        {
+          "name": "Advanced Math Auxiliary",
+          "description": "At least one additional math course must be completed",
+          "filters": [{"list": ["MATH 319", "MATH 320", "MATH 340", "MATH 341", "E C E 334", "E C E/COMP SCI/M E 532"]}],
+          "validation": {"min_courses": 1},
+          "credits_apply_to": ["Professional Electives", "Advanced Electives"]
+        }
+      ]
+    },
+    {
+      "name": "Science",
+      "description": "Science requirements including physics, chemistry, and programming",
+      "credits_required": 17,
+      "conditions": [
+        {
+          "description": "Programming II",
+          "filters": [{"list": ["COMP SCI 300"]}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "General Physics 1",
+          "filters": [{"list": ["PHYSICS 201", "PHYSICS 207", "PHYSICS 247"]}],
+          "validation": {"min_courses": 1},
+          "alternative_fulfillment": [
+            {
+              "description": "Engineering Mechanics Alternative",
+              "filters": [{"list": ["E M A 201", "E M A 202"]}],
+              "validation": {"min_courses": 2}
+            }
+          ]
+        },
+        {
+          "description": "General Physics 2",
+          "filters": [{"list": ["PHYSICS 202", "PHYSICS 208", "PHYSICS 248"]}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Chemistry",
+          "filters": [{"list": ["CHEM 109", "CHEM 103", "CHEM 104"]}],
+          "validation": {"min_courses": 1}
+        }
+      ]
+    },
+    {
+      "name": "Electrical Engineering Core",
+      "description": "Core courses required for all EE majors",
+      "credits_required": 32,
+      "conditions": [
+        {
+          "description": "EE Core Courses",
+          "filters": [
+            {"list": [
+              "E C E 203", "E C E 210", "E C E 222", "E C E 230", 
+              "E C E/PHYSICS 235", "E C E/COMP SCI 252", "E C E 270", 
+              "E C E 271", "E C E 330", "E C E 340", 
+              "E C E/COMP SCI 352", "E C E 370"
+            ]}
+          ],
+          "validation": {"min_courses": 12}
+        }
+      ]
+    },
+    {
+      "name": "Electrical Engineering Advanced Electives",
+      "description": "Advanced electives with distribution requirements across areas",
+      "credits_required": 24,
+      "conditions": [
+        {
+          "description": "Advanced Electives Distribution",
+          "areas": [
+            {
+              "name": "Laboratory",
+              "filters": [
+                {"list": ["E C E 303", "E C E 304", "E C E 305", "E C E 306", 
+                  "E C E 308", "E C E 313", "E C E 315", "E C E 317"]}
+              ],
+              "validation": {"min_courses": 1}
+            },
+            {
+              "name": "Additional Laboratory",
+              "filters": [
+                {"list": ["E C E 303", "E C E 304", "E C E 305", "E C E 306", 
+                  "E C E 308", "E C E 313", "E C E 315", "E C E 317", 
+                  "E C E 432", "E C E 453", "E C E/B M E 462", "E C E 504", 
+                  "E C E 512", "E C E 545", "E C E 549", "E C E 554", 
+                  "E C E/M E 577"]}
+              ],
+              "validation": {"min_courses": 1}
+            },
+            {
+              "name": "Fields & Waves",
+              "filters": [
+                {"list": ["E C E 320", "E C E 420", "E C E 434", 
+                  "E C E/N E/PHYSICS 525", "E C E/N E/PHYSICS 527", 
+                  "E C E/N E 528", "E C E 536", "E C E 546", "E C E 547"]}
+              ]
+            },
+            {
+              "name": "Systems & Control",
+              "filters": [
+                {"list": ["E C E 332", "E C E 334", "E C E/M E 439", "E C E/M E 577"]}
+              ]
+            },
+            {
+              "name": "Power & Machines",
+              "filters": [
+                {"list": ["E C E 355", "E C E 356", "E C E 411", "E C E 412", 
+                  "E C E 427", "E C E 504", "E C E 511", "E C E 512"]}
+              ]
+            },
+            {
+              "name": "Communications & Signal Processing",
+              "filters": [
+                {"list": ["E C E 331", "E C E 401", "E C E 431", "E C E 432", 
+                  "E C E/COMP SCI/MATH 435", "E C E 436", "E C E 437", 
+                  "E C E 447", "E C E/COMP SCI/M E 532", "E C E/COMP SCI 533", 
+                  "E C E 537", "E C E/COMP SCI/M E 539", "E C E/I SY E 570", 
+                  "E C E/MATH 641"]}
+              ]
+            },
+            {
+              "name": "Circuits & Devices",
+              "filters": [
+                {"list": ["E C E 335", "E C E 342", "E C E 445", "E C E/B M E 462", 
+                  "E C E 466", "E C E 541", "E C E 542", "E C E 545", 
+                  "E C E 548", "E C E 549", "E C E 555"]}
+              ]
+            },
+            {
+              "name": "Computers & Computing",
+              "filters": [
+                {"list": ["E C E 353", "E C E/COMP SCI 354", "E C E 453", 
+                  "E C E 454", "E C E/B M E 463", "E C E/COMP SCI 506", 
+                  "E C E 551", "E C E/COMP SCI 552", "E C E 553", 
+                  "E C E 554", "E C E 556"]}
+              ]
+            }
+          ],
+          "validation": {
+            "min_areas": 3,
+            "min_credits": 22,
+            "additional_requirements": [
+              {
+                "type": "min_courses",
+                "courses": {
+                  "filters": [{"list": ["E C E 453", "E C E 454", "E C E 455", "E C E 554"]}]
+                },
+                "count": 1,
+                "description": "Capstone Design Course"
+              },
+              {
+                "type": "min_credits",
+                "courses": {
+                  "filters": [{"department": "E C E", "course_number": {"$gte": 400}}]
+                },
+                "count": 9,
+                "description": "At least 9 credits must be in E C E courses numbered 400 and above"
+              }
+            ]
+          }
+        }
+      ],
+      "special_conditions": [
+        {
+          "description": "Independent Study or Research Credits",
+          "filters": [
+            {"list": ["E C E 399", "E C E 489", "E C E 699"]}
+          ],
+          "validation": {"max_credits": 6}
+        },
+        {
+          "description": "Cooperative Education",
+          "filters": [{"list": ["E C E 1"]}],
+          "validation": {"max_credits": 1}
+        },
+        {
+          "description": "Special Topics",
+          "filters": [{"list": ["E C E 379", "E C E 601"]}],
+          "validation": {"count_toward": "Advanced Electives"}
+        },
+        {
+          "description": "COMP SCI Advanced Courses",
+          "filters": [{"department": "COMP SCI", "course_number": {"$gte": 500}}],
+          "validation": {"max_credits": 5, "exclude": ["Independent Study"]}
+        }
+      ]
+    },
+    {
+      "name": "Professional Electives",
+      "description": "Courses to be taken in an area of professional interest",
+      "credits_required": 9,
+      "conditions": [
+        {
+          "description": "Professional Electives",
+          "filters": [
+            {"list": ["MATH/COMP SCI 240", "E C E 204", "MATH 319", "MATH 320", 
+              "MATH 321", "MATH 322", "MATH 340", "MATH 341"]},
+            {"department": "E C E", "course_number": {"$gte": 320, "$lt": 399}},
+            {"department": "E C E", "course_number": {"$gte": 399}},
+            {"department": "COMP SCI", "course_number": {"$gte": 400}},
+            {"department": "MATH", "course_number": {"$gte": 400}},
+            {"department": "STATS", "course_number": {"$gte": 400}},
+            {"category": "Biological Science", "level": ["Intermediate", "Advanced"]},
+            {"category": "Physical Science", "level": ["Intermediate", "Advanced"], 
+             "exclude": ["PHYSICS 241"]},
+            {"category": "Natural Science", "level": ["Advanced"], 
+             "exclude": ["MATH", "COMP SCI", "STATS"]},
+            {"school": "Engineering", "course_number": {"$gte": 300}, 
+             "exclude_departments": ["E C E"]},
+            {"school": "Business", "course_number": {"$gte": 300}},
+            {"list": ["DS 501", "DANCE 560"]}
+          ],
+          "validation": {"min_credits": 9}
+        }
+      ],
+      "special_conditions": [
+        {
+          "description": "Business School Limit",
+          "filters": [{"school": "Business", "course_number": {"$gte": 300}}],
+          "validation": {"max_credits": 6}
+        },
+        {
+          "description": "MATH Course Exclusion",
+          "notes": "Students may only earn degree credit for MATH 320 or MATH 340, not both"
+        }
+      ]
+    },
+    {
+      "name": "Communication Skills",
+      "description": "Required communication courses",
+      "credits_required": 6,
+      "conditions": [
+        {
+          "description": "First Communication Course",
+          "filters": [{"list": ["ENGL 100", "LSC 100", "COM ARTS 100", "COM ARTS 181", "ESL 118"]}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Engineering Communication",
+          "filters": [{"list": ["INTEREGR 397"]}],
+          "validation": {"min_courses": 1}
+        }
+      ]
+    },
+    {
+      "name": "Liberal Studies",
+      "description": "Liberal studies electives",
+      "credits_required": 15,
+      "conditions": [
+        {
+          "description": "Liberal Studies Requirement",
+          "filters": [
+            {"attribute": ["H", "S", "L", "Z"]},
+            {"category": "Language"}
+          ],
+          "validation": {"min_credits": 15}
+        }
+      ]
+    },
+    {
+      "name": "Free Electives",
+      "description": "Additional coursework to reach 120 total credits",
+      "credits_required": 1
+    },
+    {
+      "name": "University General Education Requirements",
+      "description": "University-wide requirements that must be fulfilled",
+      "conditions": [
+        {
+          "description": "Breadth-Humanities/Literature/Arts",
+          "filters": [{"breadth": "Humanities/Literature/Arts"}],
+          "validation": {"min_credits": 6}
+        },
+        {
+          "description": "Breadth-Natural Science",
+          "filters": [
+            {"breadth": "Natural Science", "has_lab": true},
+            {"breadth": "Natural Science"}
+          ],
+          "validation": {
+            "min_credits": 4,
+            "options": [
+              {"type": "one_course_with_lab", "min_credits": 4},
+              {"type": "two_courses", "min_credits": 6}
+            ]
+          }
+        },
+        {
+          "description": "Breadth-Social Studies",
+          "filters": [{"breadth": "Social Studies"}],
+          "validation": {"min_credits": 3}
+        },
+        {
+          "description": "Communication Part A",
+          "filters": [{"attribute": "Communication A"}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Communication Part B",
+          "filters": [{"attribute": "Communication B"}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Ethnic Studies",
+          "filters": [{"attribute": "Ethnic Studies"}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Quantitative Reasoning Part A",
+          "filters": [{"attribute": "Quantitative Reasoning A"}],
+          "validation": {"min_courses": 1}
+        },
+        {
+          "description": "Quantitative Reasoning Part B",
+          "filters": [{"attribute": "Quantitative Reasoning B"}],
+          "validation": {"min_courses": 1}
+        }
+      ]
+    },
+    {
+      "name": "Honors in Research Program",
+      "description": "Optional honors designation for qualifying undergraduates",
+      "optional": true,
+      "conditions": [
+        {
+          "description": "Honors Research Credits",
+          "filters": [{"list": ["E C E 489"]}],
+          "validation": {"min_credits": 6}
+        }
+      ],
+      "special_conditions": [
+        {
+          "description": "GPA Requirement",
+          "validation": {"min_gpa": 3.3}
+        },
+        {
+          "description": "Minimum Grade in Honors Research",
+          "filters": [{"list": ["E C E 489"]}],
+          "validation": {"min_grade": "B"}
+        }
+      ]
+    }
+  ]
+}

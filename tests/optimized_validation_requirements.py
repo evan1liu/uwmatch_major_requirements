@@ -22,25 +22,41 @@ course_collection = db.courses
 
 async def mem_handle_list_criterion(course: dict, criterion: List[str]) -> bool:
     """Handle list criterion with in-memory course data"""
+    # first, we get the "departments" list from the course dictionary
     departments = course.get("departments", [])
+    # then, we get the course_number string from the course dictionary
     course_number = course.get("course_number", "")
     
+    # since the list criterion type is a list of course_code, we're iterating through it
     for list_course in criterion:
+        # we use the function parse_course_code from utils to convert the course_code string
+        # into a dictionary with keys "departments" and "course_number"
         parsed = parse_course_code(list_course)
+        # first check if the number is the same
+        # if the number doesn't match (first comparitve doesn't pass), then the code doesn't check anymore
         if (parsed["course_number"] == course_number and 
+            # then, we check if they have any overlapping department
+            # when finds the same department, it stops checking and return True
             any(dept in departments for dept in parsed["departments"])):
             return True
+    # after iterating through all the courses, and it hasn't return True yet,
+    # that means the course is not in the list, so return False
     return False
 
 async def mem_handle_category_criterion(course: dict, criterion: str) -> bool:
     """Handle category criterion with in-memory course data"""
+    
     formatted_designations = course.get("formatted_designations", [])
+    # check if the criterion (ex: Biological Science) exists in the string designation (ex: Breath - Biological Science)
     return any(criterion in designation for designation in formatted_designations)
 
 async def mem_handle_level_criterion(course: dict, criterion: List[str]) -> bool:
     """Handle level criterion with in-memory course data"""
+    # the "level" also exists in the list of formatted_designations
     formatted_designations = course.get("formatted_designations", [])
+    # formatted_designations is just a list of strings
     for designation in formatted_designations:
+        # the criterion in level could be a list: ['Intermediate', 'Advanced']
         for level in criterion:
             if level in designation:
                 return True
@@ -52,6 +68,7 @@ async def mem_handle_department_criterion(course: dict, criterion: str) -> bool:
     Checks if a course belongs to a specific department
     """
     departments = course.get("departments", [])
+    
     return criterion in departments
 
 async def mem_handle_course_number_range_criterion(course: dict, criterion: Dict) -> bool:
@@ -66,16 +83,10 @@ async def mem_handle_course_number_range_criterion(course: dict, criterion: Dict
     - $ne (not equal)
     """
     course_number_str = course.get("course_number", "")
+    course_number = int(course_number_str)
     
-    # Extract the numeric part from course number (e.g., "301A" -> 301)
-    try:
-        # Try to extract just the numeric part from the course number
-        course_number = int(''.join(c for c in course_number_str if c.isdigit()))
-    except (ValueError, TypeError):
-        # If we can't convert to a number, this criterion doesn't match
-        return False
-    
-    # Check each comparison operator
+    # for 'course_number' criterion, usually there's an operator and a value to compare the course_number to
+    # it could be a list, who knows...
     for operator, value in criterion.items():
         if operator == "$gt" and not (course_number > value):
             return False
@@ -93,7 +104,8 @@ async def mem_handle_course_number_range_criterion(course: dict, criterion: Dict
     # If we passed all the operator checks, return True
     return True
 
-# Map criterion types to in-memory handlers
+# we map the keys of different criteria to a function name
+# we'll be deciding which function to use based on the key of the filter dictionary
 mem_criterion_handlers = {
     'list': mem_handle_list_criterion,
     'category': mem_handle_category_criterion,
@@ -104,17 +116,28 @@ mem_criterion_handlers = {
 
 async def course_meets_condition_mem(course: dict, condition: dict) -> bool:
     """Check if a course meets a condition using the strategy pattern with in-memory data"""
+    # there could be multiple filters exist for a given condition
+    # therefore, we have to iterate through all filters
     for filter_criteria in condition['filters']:
-        all_criterion_match = True
+        # we first assume all criteria matches
+        all_criteria_match = True
         
+        # we iterate through the filter items, and seperate the criterion type, and the criterion
+        # we use our criterion_type to decide which function to use by using .get on the dictionary 'mem_criterion_handlers' we defined earlier
         for criterion_type, criterion in filter_criteria.items():
             handler = mem_criterion_handlers.get(criterion_type)
+
+            # we feed in the course dict object and the criterion as arguments to the handler
+            # each criterion handler returns a boolean value of whether the course fits the criterion
             if handler and not await handler(course, criterion):
-                all_criterion_match = False
+                # as soon as a criterion doesn't match, the course doesn't pass the filter
+                # since we defined a filter as having many criteria, you must pass all criteria to pass the filter
+                all_criteria_match = False
                 break
-                
-        if all_criterion_match:
+        # if goin
+        if all_criteria_match:
             return True
+    # if the course doesn't match any filter, then it's defaulted to False
     return False
 
 # ============================
@@ -126,7 +149,7 @@ async def bulk_strategy_check_courses_condition(condition: dict, courses: List[s
     Check a single condition for multiple courses using bulk MongoDB operations
     but apply the strategy pattern for evaluating criteria
     """
-    # Convert string IDs to ObjectIds for MongoDB queries
+    # we first convert the list of string ids into a list of mongodb's bson ObjectId
     course_object_ids = [bson.ObjectId(course_id) for course_id in courses]
     
     # Build an initial pipeline to get the basic course data
@@ -136,23 +159,24 @@ async def bulk_strategy_check_courses_condition(condition: dict, courses: List[s
                       "course_number": 1, "formatted_designations": 1}}
     ]
     
-    # Get all relevant course data in a single query
+    # course_data is a list of dictionaries, wht key/value pairs being the field names and values we extracted
     course_data = await course_collection.aggregate(base_pipeline).to_list(length=None)
     
-    # Create a dictionary for faster lookups
+    # convert the list of dictionaries into a dictionary of dictionaries, with each sub-dictionary's key being the course_id
     course_dict = {str(course["_id"]): course for course in course_data}
     
-    # Process each course against the condition using the strategy pattern
+    # first, initiate the passing courses as an empty list
     passing_courses = []
     
+    # we iterate through the courses for the given condition
     for course in course_data:
         course_id = str(course["_id"])
         course_code = course.get("course_code", "Unknown").replace('\u200b', '')
         
-        # Use the strategy pattern with in-memory data
-        passes = await course_meets_condition_mem(course, condition)
+        # we defined the function 'course_meets_condition_mem' as a function that returns a boolean variable
+        condition_passed = await course_meets_condition_mem(course, condition)
         
-        if passes:
+        if condition_passed:
             passing_courses.append((course_code, course_id))
     
     # Calculate total credits from passing courses
@@ -194,30 +218,6 @@ async def bulk_strategy_check_courses_condition(condition: dict, courses: List[s
         "passing_courses": [course for course, _ in passing_courses],
         "metrics": validation_metrics
     }
-
-# ============================
-# Interface Functions (using the hybrid approach internally)
-# ============================
-
-async def check_condition_for_courses(condition: dict, courses: List[str]) -> dict:
-    """
-    Check a single condition for multiple courses and return detailed validation results
-    """
-    return await bulk_strategy_check_courses_condition(condition, courses)
-
-async def check_single_course_condition(course_id: str, condition: dict) -> tuple:
-    """
-    Check if a single course meets a condition and return tuple with course code, id, and result
-    """
-    # We'll use the hybrid approach but for a single course
-    result = await bulk_strategy_check_courses_condition(condition, [course_id])
-    
-    # Get course data for the response
-    course_data = await get_fields_by_id(course_collection, course_id, ["course_code"])
-    course_code = course_data.get("course_code", "Unknown").replace('\u200b', '')
-    
-    # Return in the expected format
-    return (course_code, course_id, course_id in [c.split(" - ")[1] for c in result["passing_courses"]])
 
 async def concurrent_main(courses: List[str], conditions: List[dict]) -> List[dict]:
     """

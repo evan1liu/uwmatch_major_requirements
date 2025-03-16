@@ -1,0 +1,649 @@
+{
+  "major_name": "Electrical Engineering",
+  "total_credits_required": 120,
+  "total_credits_earned": 29,
+  "overall_status": false,
+  "requirement_groups": [
+    {
+      "name": "Mathematics",
+      "description": "Mathematics requirements including calculus, multi-variable calculus, and statistics",
+      "credits_required": 16,
+      "credits_earned": 16,
+      "conditions": [
+        {
+          "description": "Calculus and Analytic Geometry 1",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 5,
+          "courses_applied": [
+            {
+              "course_code": "MATH 221",
+              "credits": 5
+            }
+          ]
+        },
+        {
+          "description": "Calculus and Analytic Geometry 2",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 4,
+          "courses_applied": [
+            {
+              "course_code": "MATH 222",
+              "credits": 4
+            }
+          ]
+        },
+        {
+          "description": "Calculus--Functions of Several Variables",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 4,
+          "courses_applied": [
+            {
+              "course_code": "MATH 234",
+              "credits": 4
+            }
+          ]
+        },
+        {
+          "description": "Probability and Statistics Elective",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 3,
+          "courses_applied": [
+            {
+              "course_code": "STAT 311",
+              "credits": 3
+            }
+          ]
+        }
+      ],
+      "unfulfilled_conditions": [],
+      "is_fulfilled": true,
+      "courses_applied": [
+        {
+          "course_code": "MATH 221",
+          "credits": 5
+        },
+        {
+          "course_code": "MATH 222",
+          "credits": 4
+        },
+        {
+          "course_code": "MATH 234",
+          "credits": 4
+        },
+        {
+          "course_code": "STAT 311",
+          "credits": 3
+        }
+      ]
+    },
+    {
+      "name": "Science",
+      "description": "Science requirements including physics, chemistry, and programming",
+      "credits_required": 17,
+      "credits_earned": 13,
+      "conditions": [
+        {
+          "description": "Programming II",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 3,
+          "courses_applied": [
+            {
+              "course_code": "COMP SCI 300",
+              "credits": 3
+            }
+          ]
+        },
+        {
+          "description": "General Physics 1",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 5,
+          "courses_applied": [
+            {
+              "course_code": "PHYSICS 207",
+              "credits": 5
+            }
+          ]
+        },
+        {
+          "description": "General Physics 2",
+          "is_fulfilled": true,
+          "details": "Found 1/1 required courses",
+          "credits_earned": 5,
+          "courses_applied": [
+            {
+              "course_code": "PHYSICS 208",
+              "credits": 5
+            }
+          ]
+        },
+        {
+          "description": "Chemistry",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Chemistry",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 17 credits, earned 13"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": [
+        {
+          "course_code": "COMP SCI 300",
+          "credits": 3
+        },
+        {
+          "course_code": "PHYSICS 207",
+          "credits": 5
+        },
+        {
+          "course_code": "PHYSICS 208",
+          "credits": 5
+        }
+      ]
+    },
+    {
+      "name": "Electrical Engineering Core",
+      "description": "Core courses required for all EE majors",
+      "credits_required": 32,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "EE Core Courses",
+          "is_fulfilled": false,
+          "details": "Found 0/12 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "EE Core Courses",
+          "details": "Found 0/12 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 32 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Electrical Engineering Advanced Electives",
+      "description": "Advanced electives with distribution requirements across areas",
+      "credits_required": 24,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "Advanced Electives Distribution",
+          "is_fulfilled": false,
+          "details": "Fulfilled 0/3 required areas, Earned 0/22 required credits, Not all additional requirements met",
+          "credits_earned": 0,
+          "courses_applied": [],
+          "areas": [
+            {
+              "name": "Laboratory",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Additional Laboratory",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Fields & Waves",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Systems & Control",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Power & Machines",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Communications & Signal Processing",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Circuits & Devices",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            },
+            {
+              "name": "Computers & Computing",
+              "courses": [],
+              "credits": 0,
+              "is_fulfilled": false
+            }
+          ],
+          "fulfilled_areas_count": 0,
+          "additional_requirements": [
+            {
+              "type": "min_courses",
+              "description": "Capstone Design Course",
+              "is_fulfilled": false,
+              "details": "Found 0/1 required courses",
+              "courses_applied": []
+            },
+            {
+              "type": "min_credits",
+              "description": "At least 9 credits must be in E C E courses numbered 400 and above",
+              "is_fulfilled": false,
+              "details": "Earned 0/9 required credits",
+              "courses_applied": []
+            }
+          ]
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Advanced Electives Distribution",
+          "details": "Fulfilled 0/3 required areas, Earned 0/22 required credits, Not all additional requirements met"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 24 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Professional Electives",
+      "description": "Courses to be taken in an area of professional interest",
+      "credits_required": 9,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "Professional Electives",
+          "is_fulfilled": false,
+          "details": "Earned 0/9 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Professional Electives",
+          "details": "Earned 0/9 required credits"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 9 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Communication Skills",
+      "description": "Required communication courses",
+      "credits_required": 6,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "First Communication Course",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Engineering Communication",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "First Communication Course",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Engineering Communication",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 6 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Liberal Studies",
+      "description": "Liberal studies electives",
+      "credits_required": 15,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "Liberal Studies Requirement",
+          "is_fulfilled": false,
+          "details": "Earned 0/15 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Liberal Studies Requirement",
+          "details": "Earned 0/15 required credits"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 15 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Free Electives",
+      "description": "Additional coursework to reach 120 total credits",
+      "credits_required": 1,
+      "credits_earned": 0,
+      "conditions": [],
+      "unfulfilled_conditions": [
+        {
+          "description": "Credit Requirement",
+          "details": "Need 1 credits, earned 0"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "University General Education Requirements",
+      "description": "University-wide requirements that must be fulfilled",
+      "credits_required": 0,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "Breadth-Humanities/Literature/Arts",
+          "is_fulfilled": false,
+          "details": "Earned 0/6 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Breadth-Natural Science",
+          "is_fulfilled": false,
+          "details": "Earned 0/4 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Breadth-Social Studies",
+          "is_fulfilled": false,
+          "details": "Earned 0/3 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Communication Part A",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Communication Part B",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Ethnic Studies",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Quantitative Reasoning Part A",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        },
+        {
+          "description": "Quantitative Reasoning Part B",
+          "is_fulfilled": false,
+          "details": "Found 0/1 required courses",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Breadth-Humanities/Literature/Arts",
+          "details": "Earned 0/6 required credits"
+        },
+        {
+          "description": "Breadth-Natural Science",
+          "details": "Earned 0/4 required credits"
+        },
+        {
+          "description": "Breadth-Social Studies",
+          "details": "Earned 0/3 required credits"
+        },
+        {
+          "description": "Communication Part A",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Communication Part B",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Ethnic Studies",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Quantitative Reasoning Part A",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Quantitative Reasoning Part B",
+          "details": "Found 0/1 required courses"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    },
+    {
+      "name": "Honors in Research Program",
+      "description": "Optional honors designation for qualifying undergraduates",
+      "credits_required": 0,
+      "credits_earned": 0,
+      "conditions": [
+        {
+          "description": "Honors Research Credits",
+          "is_fulfilled": false,
+          "details": "Earned 0/6 required credits",
+          "credits_earned": 0,
+          "courses_applied": []
+        }
+      ],
+      "unfulfilled_conditions": [
+        {
+          "description": "Honors Research Credits",
+          "details": "Earned 0/6 required credits"
+        }
+      ],
+      "is_fulfilled": false,
+      "courses_applied": []
+    }
+  ],
+  "unfulfilled_requirements": [
+    {
+      "group_name": "Science",
+      "description": "Science requirements including physics, chemistry, and programming",
+      "details": [
+        {
+          "description": "Chemistry",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 17 credits, earned 13"
+        }
+      ]
+    },
+    {
+      "group_name": "Electrical Engineering Core",
+      "description": "Core courses required for all EE majors",
+      "details": [
+        {
+          "description": "EE Core Courses",
+          "details": "Found 0/12 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 32 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "Electrical Engineering Advanced Electives",
+      "description": "Advanced electives with distribution requirements across areas",
+      "details": [
+        {
+          "description": "Advanced Electives Distribution",
+          "details": "Fulfilled 0/3 required areas, Earned 0/22 required credits, Not all additional requirements met"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 24 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "Professional Electives",
+      "description": "Courses to be taken in an area of professional interest",
+      "details": [
+        {
+          "description": "Professional Electives",
+          "details": "Earned 0/9 required credits"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 9 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "Communication Skills",
+      "description": "Required communication courses",
+      "details": [
+        {
+          "description": "First Communication Course",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Engineering Communication",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 6 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "Liberal Studies",
+      "description": "Liberal studies electives",
+      "details": [
+        {
+          "description": "Liberal Studies Requirement",
+          "details": "Earned 0/15 required credits"
+        },
+        {
+          "description": "Credit Requirement",
+          "details": "Need 15 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "Free Electives",
+      "description": "Additional coursework to reach 120 total credits",
+      "details": [
+        {
+          "description": "Credit Requirement",
+          "details": "Need 1 credits, earned 0"
+        }
+      ]
+    },
+    {
+      "group_name": "University General Education Requirements",
+      "description": "University-wide requirements that must be fulfilled",
+      "details": [
+        {
+          "description": "Breadth-Humanities/Literature/Arts",
+          "details": "Earned 0/6 required credits"
+        },
+        {
+          "description": "Breadth-Natural Science",
+          "details": "Earned 0/4 required credits"
+        },
+        {
+          "description": "Breadth-Social Studies",
+          "details": "Earned 0/3 required credits"
+        },
+        {
+          "description": "Communication Part A",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Communication Part B",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Ethnic Studies",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Quantitative Reasoning Part A",
+          "details": "Found 0/1 required courses"
+        },
+        {
+          "description": "Quantitative Reasoning Part B",
+          "details": "Found 0/1 required courses"
+        }
+      ]
+    }
+  ]
+}
