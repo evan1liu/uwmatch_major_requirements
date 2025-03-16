@@ -145,10 +145,10 @@ class RecursiveMajorValidator:
             
             filtered = matching_courses
         
-        # Rest of the filtering logic remains the same
+        # Modified category matching to look for substring
         if "category" in criteria:
             cat = criteria["category"]
-            filtered = [c for c in filtered if cat in c.get("formatted_designations", [])]
+            filtered = [c for c in filtered if any(cat in designation for designation in c.get("formatted_designations", []))]
 
         if "has_lab" in criteria:
             if criteria["has_lab"]:
@@ -212,7 +212,8 @@ async def get_course_information(list_of_string_courseids: list[str]) -> list[di
     
     # course_data is a list of dictionaries, wht key/value pairs being the field names and values we extracted
     course_data = await course_collection.aggregate(base_pipeline).to_list(length=None)
-    
+    for course in course_data:
+        print(course)
     return course_data
     
 # Create a main async function to wrap everything
