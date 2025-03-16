@@ -34,23 +34,21 @@
 #   - How to deal with conditions that satisfy multiple requirements?
 #   - EX: A course fulfills a given requirement therefore cannot be used to fulfill any other requirements
 
-conditions = [
-    {
+example_condition_1 = {
         'description': 'Professional Electives',
         'filters': [
             {'list': ['MATH/COMP SCI 240', 'E C E 204', 'E C E 320', 'E C E 331', 'E C E 332', 'E C E 334']},
             {'department': 'E C E', 'course_number': {'$gte': 400}},
-            {'category': 'Biological Science', 'level': ['Elementary', 'Advanced']}
+            {'category': 'Biological Science', 'level': ['Intermediate', 'Advanced']}
         ],
-        'val_type': 'min_credits',
-        'val_value': 9
-},
-    {
+        'validation': {'min_credits': 9}
+}
+example_condition_2 = {
         'description': 'Communication Requirement',
         'filters': [
             {'category': 'Communication Part A'}
         ],
-        'val_type': 'min_courses',
-        'val_value': 1
-},
-]
+        'validation': {'min_courses': 1}
+}
+
+

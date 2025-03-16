@@ -17,12 +17,13 @@ from utils.parse_course_code import parse_course_code
 
 
 async def course_meets_condition(course_id: str, condition: dict):
-    
-    # for a given filter, there may be multiple criteria (plural)
-    # we first assume all criteria met is true until proven otherwise
-    # this way, if one criterion isn't satisfied, all_crtierion_satisfied is false
-    # and therefore it doesn't match the filter
+    satisfies_condition = False
+   
     for filter in condition['filters']:
+         # for a given filter, there may be multiple criteria (plural)
+        # we first assume all criteria met is true until proven otherwise
+        # this way, if one criterion isn't satisfied, all_crtierion_satisfied is false
+        # and therefore it doesn't match the filter
         all_criterion_match = True
         
         for criterion_type, criterion in filter.items():
@@ -63,27 +64,35 @@ async def course_meets_condition(course_id: str, condition: dict):
                 all_criterion_match = False
                 
         if all_criterion_match == True:
-            print("GOOD MATCH!!!")
+            satisfies_condition = True
+    return satisfies_condition
+    
+    
 
 
 example_condition1 = {
-    'description': 'Professional Electives',
+    'description': 'ECE Professional Electives',
     'filters': [
         {'list': ['MATH/COMP SCI 240', 'E C E 204', 'E C E 320', 'E C E 331', 'E C E 332', 'E C E 431']}],
     'validation': {'min_courses': 3}
 }
 
 example_condition2 = {
-    'description': 'Professional Electives',
+    'description': 'Bio Condition',
      'filters': [
          {'category': 'Biological Science', 'level': ['Intermediate', 'Advanced'] }]
 }
 
 test_courses_1 = ['67577f027fd66ec727391b39', '67577f027fd66ec727391b39', '67577f997fd66ec727393c59']
 async def main():
-    for condition in [example_condition1, example_condition1]:
-        for course_id in test_courses_1:
-            await course_meets_condition(course_id, condition)
+    for course_id in test_courses_1:
+        course_data = await get_fields_by_id(course_colelction, course_id, ["course_code"])
+        course_code = course_data["course_code"]
+        course_code = course_code.replace('\u200b', '')
+        
+        for condition in [example_condition1, example_condition2]:
+            result = await course_meets_condition(course_id, condition)
+            print([course_code, condition["description"], result])
             
 
 if __name__ == "__main__":

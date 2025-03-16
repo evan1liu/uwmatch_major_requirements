@@ -15,10 +15,8 @@ db = client.uwmatch  # Database name
 
 # Define an async function to handle the query
 async def fetch_course():
-    cursor = db.courses.find(
-        {
-            "course_code": "BIOLOGY/​ZOOLOGY 101"
-        }
+    cursor = db.roadmap.find(
+        
     )
     async for doc in cursor:
         print(doc)

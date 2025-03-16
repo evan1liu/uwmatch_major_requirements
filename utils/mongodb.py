@@ -6,7 +6,6 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config import Settings
 import asyncio
-from tests.example_conditions import conditions
 
 # Step 1: Initialize the async MongoDB client
 client = AsyncIOMotorClient(Settings.MONGODB_URI)
