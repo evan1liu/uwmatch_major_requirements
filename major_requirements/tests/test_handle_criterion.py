@@ -5,23 +5,22 @@ pytest_plugins = ["pytest_asyncio"]
 pytestmark = pytest.mark.asyncio
 
 from major_requirements.handle_criterion import (
-    course_passes_list_criterion,
+    course_passes_course_code_criterion,
     course_passes_category_criterion,
     course_passes_level_criterion,
     course_passes_department_criterion,
     course_passes_course_number_range_criterion,
     course_passes_school_or_college_criterion,
-    criterion_handlers # a dictionary matching the criterion type to the handle_creiterion function
 )
 
-async def test_course_passes_list_criterion():
+async def test_course_passes_course_code_criterion():
     example_course_1 = {'_id': '67577f107fd66ec727391df5',
                         'credits': 2,
                         'course_number': '210',
                         'departments': ['E C E'],
                         'course_code': 'E C E 210'}
-    example_list_criterion_1 = ["E C E 203", "E C E 210", "E C E 222"]
-    result1 = await course_passes_list_criterion(example_course_1, example_list_criterion_1)
+    example_course_code_criterion_1 = ["E C E 203", "E C E 210", "E C E 222"]
+    result1 = await course_passes_course_code_criterion(example_course_1, example_course_code_criterion_1)
     assert result1 == True
     
     example_course_2 = {'_id': '67577f0f7fd66ec727391ddd',
@@ -29,8 +28,8 @@ async def test_course_passes_list_criterion():
                         'course_number': '203',
                         'departments': ['E C E'],
                         'course_code': 'E C E 203'}
-    example_list_criterion_2 = ["E C E 320", "E C E 420", "E C E 434"]
-    result2 = await course_passes_list_criterion(example_course_2, example_list_criterion_2)
+    example_course_code_criterion_2 = ["E C E 320", "E C E 420", "E C E 434"]
+    result2 = await course_passes_course_code_criterion(example_course_2, example_course_code_criterion_2)
     assert result2 == False
     
     

@@ -1,9 +1,16 @@
 from utils.parse_course_code import parse_course_code
 
+# ALL CRITERIA BESIDES COURSE NUMBER RANGE CAN BE PASSED AS A SINGLE STRING OR A LIST OF STRINGS
+# THE SUB-CRITERIA IN THE LIST OF STRINGS PASSED IN TO THESE FUNCTIONS HAVE AN OR RELATIONSHIP
+# e.g. if the "criterion" argument is a list of strings, the course should pass at least one of the sub-criteria
 
 
-async def course_passes_list_criterion(course: dict, criterion: list[str]) -> bool:
-    """Handle list criterion with in-memory course data"""
+
+async def course_passes_course_code_criterion(course: dict, criterion: str | list[str]) -> bool:
+    """Handle course code criterion with in-memory course data"""
+    if isinstance(criterion, str):
+        criterion = [criterion]
+        
     # first, we get the "departments" list from the course dictionary
     departments = course.get("departments", [])
     # then, we get the course_number string from the course dictionary
@@ -25,8 +32,11 @@ async def course_passes_list_criterion(course: dict, criterion: list[str]) -> bo
     # that means the course is not in the list, so return False
     return False
 
-async def course_passes_category_criterion(course: dict, criterion: list[str]) -> bool:
+async def course_passes_category_criterion(course: dict, criterion: str | list[str]) -> bool:
     """Handle category criterion with in-memory course data"""
+    if isinstance(criterion, str):
+        criterion = [criterion]
+        
     formatted_designations = course.get("formatted_designations", [])
     # A "designation" in "formatted_designations" may be "Breadth - Biological Science"
     # It doesn't exactly match the category in criterion "Biologcal Science"
@@ -35,9 +45,11 @@ async def course_passes_category_criterion(course: dict, criterion: list[str]) -
 
 # A LEVEL criterion could have multiple levels (e.g. Intermediate AND Advanced)
 # Therefore, the criterion value/parameter is a list of strings
-async def course_passes_level_criterion(course: dict, criterion: list[str]) -> bool:
+async def course_passes_level_criterion(course: dict, criterion: str | list[str]) -> bool:
     """Handle level criterion with in-memory course data"""
-    # the "level" also exists in the list of formatted_designations
+    if isinstance(criterion, str):
+        criterion = [criterion]
+        
     formatted_designations = course.get("formatted_designations", [])
     # formatted_designations is just a list of strings
     for designation in formatted_designations:
@@ -47,11 +59,11 @@ async def course_passes_level_criterion(course: dict, criterion: list[str]) -> b
                 return True
     return False
 
-async def course_passes_department_criterion(course: dict, criterion: list[str]) -> bool:
-    """
-    Handle department criterion with in-memory course data
-    Checks if a course belongs to any of the specified departments
-    """
+async def course_passes_department_criterion(course: dict, criterion: str | list[str]) -> bool:
+    """Handle department criterion with in-memory course data"""
+    if isinstance(criterion, str):
+        criterion = [criterion]
+        
     departments = course.get("departments", [])
     # Check if any department from criterion exists in the course's departments
     return any(dept in departments for dept in criterion)
@@ -95,17 +107,12 @@ async def course_passes_course_number_range_criterion(course: dict, criterion: d
 
 # TODO: We'll need to create a new field in the database that assigns each course to its college/school
 # @file:departments.json
-async def course_passes_school_or_college_criterion(course: dict, criterion: list[str]):
+async def course_passes_school_or_college_criterion(course: dict, criterion: str | list[str]) -> bool:
+    """Handle school/college criterion with in-memory course data"""
+    if isinstance(criterion, str):
+        criterion = [criterion]
+        
     course_school_or_college = course["school-or-college"]
     return any(school in course_school_or_college for school in criterion)
     
 
-# we map the keys of different criteria to a function name
-# we'll be deciding which function to use based on the key of the filter dictionary
-criterion_handlers = {
-    'list': course_passes_list_criterion,
-    'category': course_passes_category_criterion,
-    'level': course_passes_level_criterion,
-    'department': course_passes_department_criterion,
-    'course_number': course_passes_course_number_range_criterion,
-}
