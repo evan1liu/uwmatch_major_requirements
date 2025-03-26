@@ -66,12 +66,13 @@ COURSE_FIELDS = [
     "credits",
     "departments",
     "course_number",
-    "formatted_designations"
+    "formatted_designations",
+    "school-or-college"
 ]
 
 async def main():
     # Example test cases
-    test_course_id = "67577f7e7fd66ec727393650"
+    test_course_id = "67577efb7fd66ec727391979"
     test_course_ids = [
         "67577f107fd66ec727391df5",
         "67577eec7fd66ec72739161f",

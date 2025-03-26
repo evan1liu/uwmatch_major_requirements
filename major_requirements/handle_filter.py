@@ -20,7 +20,7 @@ criterion_handlers = {
     'levels': course_passes_level_criterion,
     'departments': course_passes_department_criterion,
     'course_number_range': course_passes_course_number_range_criterion,
-    'schools-or-colleges': course_passes_school_or_college_criterion
+    'schools_or_colleges': course_passes_school_or_college_criterion
 }
 
 async def course_passes_filter(course: dict, filter: dict) -> bool:

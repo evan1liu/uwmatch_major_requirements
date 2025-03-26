@@ -1,0 +1,1 @@
+from handle_requirement import courses_update_requirement
