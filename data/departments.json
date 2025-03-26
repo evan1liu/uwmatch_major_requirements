@@ -1,0 +1,60 @@
+{
+    "departments": {
+        "agricultural-life-sciences": [
+            "A A E", "AN SCI", "DY SCI", "ENTOM", "FOOD SCI", "F&W ECOL", "HORT", "LSC", 
+            "PL PATH", "SOIL SCI", "AGROECOL", "AGRONOMY", "BIOCHEM", "NUTR SCI", "MICROBIO", 
+            "GENETICS", "M&ENVTOX", "FISC", "INTER-AG", "PLANTSCI", "C&E SOC"
+        ],
+        "business": [
+            "ACCT I S", "FINANCE", "INFO SYS", "INTL BUS", "M H R", "MARKETNG", "OTM", 
+            "REAL EST", "R M I", "ACT SCI", "GEN BUS"
+        ],
+        "education": [
+            "ART", "ART ED", "COUN PSY", "ELPA", "ED POL", "ED PSYCH", "KINES", "PHY THER", 
+            "OCC THER", "RP & SE", "INTEGART", "CURRIC"
+        ],
+        "engineering": [
+            "B M E", "CBE", "CIV ENGR", "E C E", "E M A", "E P", "E P D", "I SY E", 
+            "INTEREGR", "M E", "M S & E", "N E", "BSE"
+        ],
+        "human-ecology": [
+            "HDFS", "CNSR SCI", "DS", "INTER-HE", "CSCS"
+        ],
+        "letters-science": [
+            "AFRICAN", "AFROAMER", "AMER IND", "ANTHRO", "ASIAN AM", "ASIAN", "ASIALANG", 
+            "ASTRON", "BOTANY", "CHEM", "CHICLA", "CLASSICS", "COM ARTS", "CS&D", "COMP LIT", 
+            "COMP SCI", "DANCE", "ECON", "ENGL", "GEOG", "GEOSCI", "GERMAN", "GNS", "GREEK", 
+            "HIST SCI", "HIST", "JEWISH", "JOURN", "LAND ARC", "LATIN", "LACIS", "LINGUIS", 
+            "LITTRANS", "MATH", "MOL BIOL", "PHILOS", "PHYSICS", "POLI SCI", "PORTUG", "PSYCH", 
+            "RELIG ST", "SCAND ST", "SLAVIC", "SOC", "THEATRE", "ZOOLOGY", "A F AERO", 
+            "ART HIST", "BIOLOGY", "BIOCORE", "ESL", "ENVIR ST", "FOLKLORE", "FRENCH", 
+            "HEBR-BIB", "HEBR-MOD", "INTER-LS", "INTEGSCI", "INTL ST", "ITALIAN", "L I S", 
+            "MEDIEVAL", "ATM OCN", "MIL SCI", "MUSIC", "MUS PERF", "NAV SCI", "NEURODPT", 
+            "NTP", "PUB AFFR", "SOC WORK", "SPANISH", "STAT", "URB R PL", "GEN&WS", "STS", 
+            "HISTORY", "G L E", "LEGAL ST", "ILS"
+        ],
+        "nursing": [
+            "NURSING", "CNP"
+        ],
+        "pharmacy": [
+            "PHM SCI", "PHM PRAC", "S&A PHM", "PHARMACY"
+        ],
+        "law": [
+            "LAW"
+        ],
+        "medicine-public-health": [
+            "POP HLTH", "MEDICINE", "B M I", "MED HIST", "MED PHYS", "PHY ASST", "PATH", 
+            "SURG SCI", "MED SC-M", "CRB", "SURGERY", "PEDIAT", "PUBLHLTH", "FAM MED", 
+            "M M & I", "PSYCHIAT", "SR MED", "ABT", "OBS&GYN", "BIOMDSCI", "EMER MED", 
+            "GENECSLR", "ONCOLOGY", "H ONCOL", "PHMCOL-M", "RADIOL", "MD GENET", "BMOLCHEM", 
+            "ANESTHES", "DERM", "ANAT&PHY", "NEUROL", "OPHTHALM", "RHAB MED", "NEURSURG", 
+            "PHYSIOL", "ANATOMY"
+        ],
+        "international-division": [
+            "STDYABRD"
+        ],
+        "veterinary-medicine": [
+            "PATH-BIO", "MED SC-V", "COMP BIO"
+        ]
+    }
+}

@@ -1,9 +1,8 @@
 from utils.parse_course_code import parse_course_code
-from typing import Dict, List
 
 
 
-async def mem_handle_list_criterion(course: dict, criterion: List[str]) -> bool:
+async def course_passes_list_criterion(course: dict, criterion: list[str]) -> bool:
     """Handle list criterion with in-memory course data"""
     # first, we get the "departments" list from the course dictionary
     departments = course.get("departments", [])
@@ -26,17 +25,17 @@ async def mem_handle_list_criterion(course: dict, criterion: List[str]) -> bool:
     # that means the course is not in the list, so return False
     return False
 
-# TODO: CHANGE to a list of strings if necessary
-async def mem_handle_category_criterion(course: dict, criterion: str) -> bool:
+async def course_passes_category_criterion(course: dict, criterion: list[str]) -> bool:
     """Handle category criterion with in-memory course data"""
-    
     formatted_designations = course.get("formatted_designations", [])
-    # check if the criterion (ex: Biological Science) exists in the string designation (ex: Breath - Biological Science)
-    return any(criterion in designation for designation in formatted_designations)
+    # A "designation" in "formatted_designations" may be "Breadth - Biological Science"
+    # It doesn't exactly match the category in criterion "Biologcal Science"
+    # Therefore, we're checking it the criterion belongs to any of the substrings in formatted designations
+    return any(cat in designation for designation in formatted_designations for cat in criterion)
 
 # A LEVEL criterion could have multiple levels (e.g. Intermediate AND Advanced)
 # Therefore, the criterion value/parameter is a list of strings
-async def mem_handle_level_criterion(course: dict, criterion: List[str]) -> bool:
+async def course_passes_level_criterion(course: dict, criterion: list[str]) -> bool:
     """Handle level criterion with in-memory course data"""
     # the "level" also exists in the list of formatted_designations
     formatted_designations = course.get("formatted_designations", [])
@@ -48,21 +47,20 @@ async def mem_handle_level_criterion(course: dict, criterion: List[str]) -> bool
                 return True
     return False
 
-# TODO: CHANGE to a list of strings if necessary
-async def mem_handle_department_criterion(course: dict, criterion: str) -> bool:
+async def course_passes_department_criterion(course: dict, criterion: list[str]) -> bool:
     """
     Handle department criterion with in-memory course data
-    Checks if a course belongs to a specific department
+    Checks if a course belongs to any of the specified departments
     """
     departments = course.get("departments", [])
-    
-    return criterion in departments
+    # Check if any department from criterion exists in the course's departments
+    return any(dept in departments for dept in criterion)
 
 # The "course_number" type criterion has a value of a dictionary
 # Each key/value pair within the dictionary: Key is the comparative, value is a number
 # e.g. {'$gte': 300, '$lte': 699}
 # This means that the course numnber should be greater or equal to 300, less than or equal to 699
-async def mem_handle_course_number_range_criterion(course: dict, criterion: Dict) -> bool:
+async def course_passes_course_number_range_criterion(course: dict, criterion: dict) -> bool:
     """
     Handle course number range criterion with in-memory course data
     Supports MongoDB-style comparison operators for course numbers:
@@ -95,12 +93,19 @@ async def mem_handle_course_number_range_criterion(course: dict, criterion: Dict
     # If we passed all the operator checks, return True
     return True
 
+# TODO: We'll need to create a new field in the database that assigns each course to its college/school
+# @file:departments.json
+async def course_passes_school_or_college_criterion(course: dict, criterion: list[str]):
+    course_school_or_college = course["school-or-college"]
+    return any(school in course_school_or_college for school in criterion)
+    
+
 # we map the keys of different criteria to a function name
 # we'll be deciding which function to use based on the key of the filter dictionary
-mem_criterion_handlers = {
-    'list': mem_handle_list_criterion,
-    'category': mem_handle_category_criterion,
-    'level': mem_handle_level_criterion,
-    'department': mem_handle_department_criterion,
-    'course_number': mem_handle_course_number_range_criterion,
+criterion_handlers = {
+    'list': course_passes_list_criterion,
+    'category': course_passes_category_criterion,
+    'level': course_passes_level_criterion,
+    'department': course_passes_department_criterion,
+    'course_number': course_passes_course_number_range_criterion,
 }

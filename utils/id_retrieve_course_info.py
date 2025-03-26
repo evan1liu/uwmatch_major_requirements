@@ -22,7 +22,10 @@ async def get_single_course_by_id(course_id: str, fields: Optional[List[str]] = 
     """
     query = {"_id": ObjectId(course_id)}
     projection = {field: 1 for field in fields} if fields is not None else None
-    return await COURSE_COLLECTION.find_one(query, projection)
+    course = await COURSE_COLLECTION.find_one(query, projection)
+    course["_id"] = str(course["_id"])
+    
+    return course
 
 async def get_courses_by_ids_bulk(course_ids: List[str], fields: Optional[List[str]] = None) -> Dict:
     """The function retrieves multiple course documents by a list of course IDs
@@ -44,9 +47,10 @@ async def get_courses_by_ids_bulk(course_ids: List[str], fields: Optional[List[s
         pipeline.append({"$project": {field: 1 for field in fields}})
     
     found_courses = await COURSE_COLLECTION.aggregate(pipeline).to_list(length=None)
+    found_courses = [{**course, "_id": str(course["_id"])} for course in found_courses]
     
     # before returning the course documents, first we check if all courses successfully retrieved
-    found_ids = {str(course["_id"]) for course in found_courses}
+    found_ids = {course["_id"] for course in found_courses}
     # if some of the course_ids do not exist in the course documents we retrieved, we add them to the list of missing ids
     missing_course_ids = [course_id for course_id in course_ids if course_id not in found_ids]
     
@@ -67,9 +71,9 @@ COURSE_FIELDS = [
 
 async def main():
     # Example test cases
-    test_course_id = "67577f1d7fd66ec7273920cb"
+    test_course_id = "67577f7e7fd66ec727393650"
     test_course_ids = [
-        "67577f1d7fd66ec7273920cb",
+        "67577f107fd66ec727391df5",
         "67577eec7fd66ec72739161f",
         '67577f027fd66ec727391b39',  # First test course
         '67577f997fd66ec727393c59',  # Another test course

@@ -9,22 +9,20 @@ def clean_unicode_chars(value: any) -> any:
         return value.replace('\u200b', '')
     elif isinstance(value, list):
         return [clean_unicode_chars(item) for item in value]
+    elif isinstance(value, dict):
+        return {k: clean_unicode_chars(v) for k, v in value.items()}
     return value
 
 async def clean_database():
     cursor = COURSE_COLLECTION.find({})
     async for doc in cursor:
-        updates = {}
-        for key in ['departments', 'course_code', 'course_codes']:
-            if key in doc:
-                cleaned_value = clean_unicode_chars(doc[key])
-                if cleaned_value != doc[key]:
-                    updates[key] = cleaned_value
-        
-        if updates:
+        cleaned_doc = clean_unicode_chars(doc)
+        if cleaned_doc != doc:
+            # Exclude _id from the update
+            cleaned_doc.pop('_id', None)
             await COURSE_COLLECTION.update_one(
                 {'_id': doc['_id']},
-                {'$set': updates}
+                {'$set': cleaned_doc}
             )
 
 # Run with:

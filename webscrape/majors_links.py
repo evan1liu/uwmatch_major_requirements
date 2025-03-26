@@ -2,6 +2,8 @@ from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from bs4 import BeautifulSoup
 import time
+import re
+import json
 
 def get_table_links(url="https://www.wisc.edu/academics/majors/", 
                     table_id="programs-results-table", wait_time=5):
@@ -45,10 +47,55 @@ def get_table_links(url="https://www.wisc.edu/academics/majors/",
     driver.quit()
     return links
 
+def extract_schools(links: list[str]) -> dict:
+    """
+    Extracts unique school/college names from URLs using regex.
+    
+    Args:
+        links (list): List of URLs containing school information.
+        
+    Returns:
+        dict: Dictionary with the count of majors for each school/college,
+              sorted from highest count to lowest count
+    """
+    schools = {}
+    pattern = r"undergraduate/([^/]+)/"
+    # r"" treats backslashes as literal characters
+    # undergruate/ -> must match the characters exactly
+    # paratheses creates a capturing group
+    # [...] defines a character set
+    # ^/ means "NOT slash", any character that is not a forward slash is included in the capture group
+    # the plus means one or more characters
+    # after the paranthese is to match the slash at the end
+    
+    for link in links:
+        match = re.search(pattern, link)
+        if match:
+            print(match)
+            school = match.group(1)
+            schools[school] = schools.get(school, 0) + 1
+    
+    return dict(sorted(schools.items(), key= lambda x: x[1], reverse=True))
+
+def save_major_urls_to_json(links, filename='major_urls.json'):
+    with open(filename, 'w') as f:
+        json.dump({"major_urls": links}, f, indent=4)
+
+def save_schools_to_json(schools, filename='schools.json'):
+    with open(filename, 'w') as f:
+        json.dump({"schools": schools}, f, indent=4)
+
 # Example usage:
 if __name__ == "__main__":
     links = get_table_links()
     print("Number of links found: ", len(links))
-    print("Links found in the table:")
+    print("\nLinks found in the table:")
     for link in links:
         print(link)
+    # save_major_urls_to_json(links)
+        
+    schools = extract_schools(links)
+    print("\nSchools/colleges & Number of Majors:")
+    for school, count in schools.items():
+        print(f"{school}: {count}")
+    # save_schools_to_json(schools)

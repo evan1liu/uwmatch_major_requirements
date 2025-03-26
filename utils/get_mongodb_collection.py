@@ -11,5 +11,7 @@ client = AsyncIOMotorClient(Settings.MONGODB_URI)
 db = client.uwmatch  # Database name
 # course_colelction = db.courses
 
+# no need to make this function async, since it's just a reference to a collection
+# no operations is being done through solely using this function
 def get_mongodb_collection(collection_name):
     return db[collection_name] # inside a function, we must use a bracket notation
