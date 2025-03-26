@@ -6,7 +6,7 @@ import asyncio
 # Add the parent directory to sys.path
 sys.path.insert(0, str(Path(__file__).parent.parent))
 from config import Settings
-from utils.mongodb import get_fields_by_id
+from utils.get_mongodb_collection import get_fields_by_id
 
 # Initialize the async MongoDB client
 client = AsyncIOMotorClient(Settings.MONGODB_URI)
