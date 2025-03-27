@@ -16,11 +16,16 @@ from major_requirements.handle_criterion import (
 # we'll be deciding which function to use based on the key of the filter dictionary
 criterion_handlers = {
     'course_codes': course_passes_course_code_criterion,
+    'course_code': course_passes_course_code_criterion,
     'categories': course_passes_category_criterion,
+    'category': course_passes_category_criterion,
     'levels': course_passes_level_criterion,
+    'level': course_passes_level_criterion,
     'departments': course_passes_department_criterion,
+    'department': course_passes_department_criterion,
     'course_number_range': course_passes_course_number_range_criterion,
-    'schools_or_colleges': course_passes_school_or_college_criterion
+    'schools_or_colleges': course_passes_school_or_college_criterion,
+    'school_or_college': course_passes_school_or_college_criterion
 }
 
 async def course_passes_filter(course: dict, filter: dict) -> bool:
