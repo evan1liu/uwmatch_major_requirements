@@ -102,15 +102,30 @@ async def credit_constraints_update_requirement(requirement: dict) -> dict:
 
 
 async def requirement_passed(requirement):
-    validation_type = list(requirement["validation"].keys())[0]
+    """
+    Check if a requirement passes based on its validation criteria.
+    Ensures counters are initialized even if no courses matched.
+    """
+    if "validation" not in requirement:
+        return requirement
         
+    validation_type = list(requirement["validation"].keys())[0]
+    
     if validation_type == "min_credits":
+        # Initialize current_credits if it doesn't exist
+        if "current_credits" not in requirement["validation"]:
+            requirement["validation"]["current_credits"] = 0
+            
         if requirement["validation"]["current_credits"] >= requirement["validation"]["min_credits"]:
             requirement["validation"]["passed"] = True
         else:
             requirement["validation"]["passed"] = False
-        
-    if validation_type == "min_courses":
+    
+    elif validation_type == "min_courses":
+        # Initialize current_courses_count if it doesn't exist 
+        if "current_courses_count" not in requirement["validation"]:
+            requirement["validation"]["current_courses_count"] = 0
+            
         if requirement["validation"]["current_courses_count"] >= requirement["validation"]["min_courses"]:
             requirement["validation"]["passed"] = True
         else:

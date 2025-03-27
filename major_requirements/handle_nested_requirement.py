@@ -5,6 +5,7 @@ from major_requirements.handle_requirement import course_updates_requirement, re
 async def process_nested_requirement_with_course(course: dict, requirement: dict) -> dict:
     """
     Process a single course against a nested requirement structure.
+    Aggregates course information and credits from sub-requirements to parent.
     
     Args:
         course (dict): A single course to evaluate
@@ -19,9 +20,33 @@ async def process_nested_requirement_with_course(course: dict, requirement: dict
     
     # Step 2: If this requirement has sub-requirements, process them recursively
     if "requirements" in requirement:
+        # Init courses_passed for parent if not present
+        if "courses_passed" not in requirement:
+            requirement["courses_passed"] = []
+            
+        sub_req_courses = []  # Track courses passed by sub-requirements
+        total_sub_req_credits = 0  # Track credits from sub-requirements
+        
         for i, sub_req in enumerate(requirement["requirements"]):
             # Process the same course against each sub-requirement
-            requirement["requirements"][i] = await process_nested_requirement_with_course(course, sub_req)
+            updated_sub_req = await process_nested_requirement_with_course(course, sub_req)
+            requirement["requirements"][i] = updated_sub_req
+            
+            # Collect courses passed by sub-requirements
+            if "courses_passed" in updated_sub_req:
+                for passed_course in updated_sub_req["courses_passed"]:
+                    if passed_course not in sub_req_courses:
+                        sub_req_courses.append(passed_course)
+                        
+                    # Add to parent's courses_passed if not already there
+                    if passed_course not in requirement["courses_passed"]:
+                        requirement["courses_passed"].append(passed_course)
+        
+        # Update parent requirement's credit count if using min_credits
+        if "validation" in requirement and "min_credits" in requirement["validation"]:
+            # Reset current_credits to recalculate from courses
+            total_credits = sum(course["credits"] for course in requirement["courses_passed"])
+            requirement["validation"]["current_credits"] = total_credits
     
     # Step 3: Check if this requirement passes based on its validation criteria
     requirement = await requirement_passed(requirement)
